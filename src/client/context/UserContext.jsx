@@ -1,14 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const UserContext = createContext({
   storeNumber: "001",
   location: "Hoboken, NJ",
+  setStoreNumber: () => {},
 });
 
 export function UserProvider({ children }) {
+  const [storeNumber, setStoreNumber] = useState("502");
   const user = {
-    storeNumber: "502",
+    storeNumber,
     location: "Louisville, KY",
+    setStoreNumber,
   };
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 }
