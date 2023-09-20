@@ -5,6 +5,8 @@ import { UserProvider } from "../client/context/UserContext";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import ErrorBoundary from "./base/ErrorBoundary";
+import Reviews from "./pages/Reviews";
+import Sales from "./pages/Sales";
 
 function App() {
   return (
@@ -21,8 +23,22 @@ function App() {
                 </ErrorBoundary>
               }
             />
-            {/* <Route path="/sales" element={} /> */}
-            {/* <Route path="/reviews" element={} /> */}
+            <Route
+              path="/sales"
+              element={
+                <ErrorBoundary>
+                  <Sales />
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/reviews"
+              element={
+                <ErrorBoundary>
+                  <Reviews />
+                </ErrorBoundary>
+              }
+            />
           </Routes>
         </Layout>
       </UserProvider>
